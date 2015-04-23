@@ -1,6 +1,5 @@
 html, body {
   font-family: 'Roboto', sans-serif;
-  font-size:14px;
   height:100%;
   margin: 0px;
   padding: 0px;
@@ -16,7 +15,7 @@ html, body {
   width: 36px;
 }
 
-md-toolbar h1 {
+md-toolbar h1, md-toolbar h2 {
   margin: auto;
 }
 
@@ -28,7 +27,7 @@ md-list .md-button {
   text-align: left;
   width: 100%;
 }
-  md-list .md-button.selected {
+  md-list .selected {
     color: #03a9f4;
   }
 
@@ -47,6 +46,12 @@ md-list .md-button {
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 5px;
+}
+
+#grid {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;  
 }
 
 #content .md-button.share {
@@ -104,7 +109,7 @@ md-toolbar h1 {
 
 .avatar {
   position: relative;
-  width: 128px;
+  width: 128px !important;
   height: 128px;
   border: 1px solid #ddd;
   border-radius: 50%;
@@ -128,3 +133,21 @@ span.name {
   font-size:1.1em;
   padding-left:5px;
 }
+
+
+.gridListdemoBasicUsage md-grid-list {
+  margin: 8px; }
+.gridListdemoBasicUsage .gray {
+  background: #f5f5f5; }
+.gridListdemoBasicUsage .green {
+  background: #b9f6ca; }
+.gridListdemoBasicUsage .yellow {
+  background: #ffff8d; }
+.gridListdemoBasicUsage .blue {
+  background: #84ffff; }
+.gridListdemoBasicUsage .purple {
+  background: #b388ff; }
+.gridListdemoBasicUsage .red {
+  background: #ff8a80; }
+.gridListdemoBasicUsage md-grid-tile {
+  transition: all 400ms ease-out 50ms; }
