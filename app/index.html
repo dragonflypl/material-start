@@ -32,13 +32,22 @@
         </h1>
     </md-toolbar>
     <md-content role="navigation" flex>
+
         <md-list>
-            <md-list-item ng-repeat="it in ul.users" ng-click="ul.selectUser(it)"
-                          ng-class="{'selected' : it === ul.selected }">
-                <md-icon class=avatar md-svg-icon="{{it.avatar}}"></md-icon>
-                <span>{{it.name}}</span>
+            <md-subheader class="md-no-sticky">People</md-subheader>
+            <md-list-item ng-repeat="it in ul.users" ng-click="ul.selectUser(it)">
+                <md-icon class=md-avatar md-svg-icon="{{it.avatar}}"></md-icon>
+                <p>{{ it.name }}</p>
             </md-list-item>
         </md-list>
+
+        <!--<md-list>-->
+        <!--<md-icon class=avatar md-svg-icon="{{it.avatar}}"></md-icon>-->
+            <!--<md-list-item ng-repeat="it in ul.users" ng-click="ul.selectUser(it)"-->
+                          <!--ng-class="{'selected' : it === ul.selected }">-->
+                <!--<span>{{it.name}}</span>-->
+            <!--</md-list-item>-->
+        <!--</md-list>-->
     </md-content>
 </md-sidenav>
 <div layout="column" flex>
@@ -106,9 +115,9 @@
     </md-content>
 </div>
 </body>
-<script type="text/javascript" src="bower_components/angular/angular.js"></script>
-<script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
-<script type="text/javascript" src="bower_components/angular-aria/angular-aria.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-aria.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.9.6/angular-material.js"></script>
 <script src="./src/users/Users.js"></script>
 <script src="./src/users/UserController.js"></script>
