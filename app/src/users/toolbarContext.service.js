@@ -1,10 +1,10 @@
-(function() {
+/*global window */
+(function (angular) {
+
+    'use strict';
+
     angular.module('users').service('toolbarContext', function () {
-        var listeners = [],
-            toolbarContext = {
-                setContext: setContext,
-                subscribe: subscribe
-            };
+        var listeners = [];
 
         /**
          *
@@ -33,13 +33,16 @@
          * Method to register listeners that will will be called on context change.
          * One candidate for listener is toolbar-context directive which is notified to update toolbar buttons
          *
-         * @param subscriber
+         * @param listener
          */
         function subscribe(listener) {
             listeners.push(listener);
         }
 
-        return toolbarContext;
+        return {
+            setContext: setContext,
+            subscribe: subscribe
+        };
     });
-}());
+}(window.angular));
 
