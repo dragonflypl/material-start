@@ -1,4 +1,7 @@
-(function() {
+/*global window */
+(function (angular) {
+
+    'use strict';
 
     /**
      * Directive that drives context actions for toolbar
@@ -10,7 +13,7 @@
                 $scope.hasContext = false;
 
                 $scope.$watch(function () {
-                    return $mdMedia('sm')
+                    return $mdMedia('sm');
                 }, function (newValue) {
                     $scope.showContext = newValue;
                 });
@@ -25,6 +28,6 @@
                     $scope.contextActions = [];
                 };
             }
-        }
-    })
-}())
+        };
+    });
+}(window.angular));
