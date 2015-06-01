@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.9.4/angular-material.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.9.6/angular-material.css"/>
     <link rel="stylesheet" href="assets/app.css"/>
 </head>
 <body ng-app="starterApp" layout="row" ng-controller="UserController as ul">
@@ -42,15 +42,38 @@
     </md-content>
 </md-sidenav>
 <div layout="column" flex>
-    <md-toolbar class="md-whiteframe-glow-z2">
-        <div class="md-toolbar-tools">
+    <md-toolbar class="md-whiteframe-glow-z2" toolbar-context>
+        <div class="md-toolbar-tools sample-show-hide">
+            <md-button hide-gt-sm ng-click="ul.toggleList()" ng-hide="showContext && hasContext"
+                       class="md-icon-button sample-show-hide" aria-label="Settings">
+                <md-icon md-svg-icon="assets/svg/menu.svg"></md-icon>
+            </md-button>
+            <md-button style="margin-left: -8px;" ng-show="showContext && hasContext" ng-click="cancelContext()"
+                       class="sample-show-hide md-icon-button" aria-label="Settings">
+                <md-icon md-svg-icon="assets/svg/arrow-left.svg"></md-icon>
+            </md-button>
+            <div flex></div>
+            <md-button ng-repeat="contextAction in contextActions track by contextAction.type"
+                       ng-click="contextAction.action()"
+                       ng-show="showContext && hasContext"
+                       class="toolbar-animate md-icon-button" aria-label="Settings">
+                <md-icon md-svg-icon="assets/svg/{{contextAction.type}}.svg"></md-icon>
+            </md-button>
+        </div>
+        <!--
+        <div ng-show="showContext && hasContext" class="md-toolbar-tools sample-show-hide">
             <md-button hide-gt-sm ng-click="ul.toggleList()" class="md-icon-button" aria-label="Settings">
                 <md-icon md-svg-icon="assets/svg/menu.svg"></md-icon>
             </md-button>
-            <h2>
-                Toolbar with Icon Buttons
-            </h2>
+            <md-button ng-click="cancelContext()" class="md-icon-button" aria-label="Settings">
+                <md-icon md-svg-icon="assets/svg/menu.svg"></md-icon>
+            </md-button>
+            <div flex></div>
+            <md-button ng-repeat="contextAction in contextActions" ng-click="contextAction.action()" ng-click="ul.toggleList()" class="md-icon-button" aria-label="Settings">
+                <md-icon md-svg-icon="assets/svg/menu.svg"></md-icon>
+            </md-button>
         </div>
+        -->
     </md-toolbar>
     <md-content id="content" flex layout-padding md-scroll-y>
         <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
@@ -86,11 +109,12 @@
 <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
 <script type="text/javascript" src="bower_components/angular-aria/angular-aria.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.9.4/angular-material.js"></script>
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.9.6/angular-material.js"></script>
 <script src="./src/users/Users.js"></script>
 <script src="./src/users/UserController.js"></script>
 <script src="./src/users/UserService.js"></script>
+<script src="./src/users/toolbarContext.directive.js"></script>
+<script src="./src/users/toolbarContext.service.js"></script>
 
 <script type="text/javascript">
 
@@ -104,6 +128,8 @@
                         .icon("google_plus", "./assets/svg/google_plus.svg", 512)
                         .icon("hangouts", "./assets/svg/hangouts.svg", 512)
                         .icon("twitter", "./assets/svg/twitter.svg", 512)
+                        .icon("bin", "./assets/svg/bin.svg", 512)
+                        .icon("edit2", "./assets/svg/edit2.svg", 512)
                         .icon("phone", "./assets/svg/phone.svg", 512);
                 $mdThemingProvider.theme('default');
 

@@ -114,3 +114,21 @@ span.name {
     font-size: 1.1em;
     padding-left: 5px;
 }
+
+/* Animations */
+
+.toolbar-animate.ng-enter,
+.sample-show-hide {
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+}
+
+.toolbar-animate.ng-enter,
+.sample-show-hide.ng-hide {
+    opacity: 0;
+}
+
+.toolbar-animate.ng-enter.ng-enter-active,
+.sample-show-hide.ng-show {
+    opacity: 1;
+}
